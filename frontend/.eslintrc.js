@@ -54,6 +54,7 @@ module.exports = {
   ],
 
   globals: {
+    kakao: 'readonly',
     ga: 'readonly', // Google Analytics
     cordova: 'readonly',
     __statics: 'readonly',

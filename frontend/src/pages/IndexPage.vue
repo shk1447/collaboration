@@ -1,42 +1,36 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
-  </q-page>
+  <q-page class="row items-center justify-evenly"> {{ counter }} </q-page>
 </template>
 
-<script setup lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
-import { ref } from 'vue';
+<script lang="ts">
+import useAppStore from 'src/stores/app';
+import { defineComponent } from 'vue';
 
-const todos = ref<Todo[]>([
-  {
-    id: 1,
-    content: 'ct1',
+type CustomData = {
+  counter: number;
+};
+export default defineComponent<any, any, CustomData>({
+  setup() {
+    return {};
   },
-  {
-    id: 2,
-    content: 'ct2',
+  data() {
+    return {
+      counter: 1,
+      test: 2,
+    };
   },
-  {
-    id: 3,
-    content: 'ct3',
+  watch: {},
+  created() {
+    console.log('created');
   },
-  {
-    id: 4,
-    content: 'ct4',
+  mounted() {
+    console.log('mounted', this);
   },
-  {
-    id: 5,
-    content: 'ct5',
+  updated() {
+    console.log('updated');
   },
-]);
-const meta = ref<Meta>({
-  totalCount: 1200,
+  unmounted() {
+    console.log('unmounted');
+  },
 });
 </script>
